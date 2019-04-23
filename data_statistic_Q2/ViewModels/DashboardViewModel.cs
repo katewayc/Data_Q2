@@ -9,6 +9,7 @@ namespace data_statistic_Q2.ViewModels
     public class DashboardViewModel
     {
         public string FileName { get; set; }
+        public string TicketSum { get; set; }
         public string AvgRspsTime { get; set; }
         public IEnumerable<DashboardTicketData> ticketDatas { get; set; }
     }

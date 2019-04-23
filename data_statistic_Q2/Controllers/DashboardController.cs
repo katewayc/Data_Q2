@@ -28,6 +28,13 @@ namespace data_statistic_Q2.Controllers
                 ticketDatas = items;
             }
 
+            int ticketCount = 0;
+            foreach (var e in ticketDatas)
+            {
+                ticketCount += e.Ticket;
+            }
+
+
             DashboardViewModel dbvm = new DashboardViewModel();
             List<DashboardTicketData> dashboardTicketDatas = new List<DashboardTicketData>();
 
@@ -39,6 +46,7 @@ namespace data_statistic_Q2.Controllers
 
             dbvm.FileName = FileName;
             dbvm.AvgRspsTime = Get_AvgRspsTime(Get_AvgRspsMinute(dashboardTicketDatas));
+            dbvm.TicketSum = ticketCount.ToString();
             dbvm.ticketDatas = dashboardTicketDatas;
 
             ViewBag.filename = dbvm.FileName;
