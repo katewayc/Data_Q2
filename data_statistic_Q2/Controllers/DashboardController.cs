@@ -44,8 +44,8 @@ namespace data_statistic_Q2.Controllers
             ViewBag.filename = dbvm.FileName;
             ViewBag.avgrspstime = dbvm.AvgRspsTime;
             ViewData["data"] = dashboardTicketDatas;
-            return View(dashboardTicketDatas);
-            //return View(dbvm);
+            // return View(dashboardTicketDatas);
+            return View(dbvm);
         }
 
         private int Get_AvgRspsMinute(List<DashboardTicketData> dashboardTicketDatas)
