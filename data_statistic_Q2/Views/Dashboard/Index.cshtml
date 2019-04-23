@@ -1,27 +1,28 @@
-﻿@model IEnumerable<data_statistic_Q2.ViewModels.DashboardTicketData>
-
+﻿@*@model IEnumerable<data_statistic_Q2.ViewModels.DashboardTicketData>*@
+@model data_statistic_Q2.ViewModels.DashboardViewModel
 
 @{
     ViewBag.Title = "Dashboard for random json data";
 }
 
-<h4>檔案名稱：@ViewBag.filename</h4>
+<h4>檔案名稱 (random)：@ViewBag.filename</h4>
 <h4>平均回應時間：@ViewBag.avgrspstime</h4>
 
 <table class="table table-bordered table-striped">
+    @{ var dummy = Model.ticketDatas.FirstOrDefault();}
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Date)
+            @Html.DisplayNameFor(model => dummy.Date)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Ticket)
+            @Html.DisplayNameFor(model => dummy.Ticket)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ResponseMinutes)
+            @Html.DisplayNameFor(model => dummy.ResponseMinutes)
         </th>
     </tr>
 
-    @foreach (var item in Model)
+    @foreach (var item in Model.ticketDatas)
     {
         <tr>
             <td>
