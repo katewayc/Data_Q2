@@ -1,0 +1,40 @@
+﻿@model Data_Q2.ViewModels.DashboardViewModel
+
+@{
+    ViewBag.Title = "Data_Q2 - Dashboard for random json data";
+}
+
+<h4>檔案名稱 (random)：@ViewBag.filename</h4>
+<h4>Ticket 數量總和：@Model.TicketSum</h4>
+<h4>平均回應時間：@ViewBag.avgrspstime</h4>
+
+<table class="table table-bordered table-striped">
+    @{ var dummy = Model.TicketDataList.FirstOrDefault();}
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => dummy.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => dummy.Ticket)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => dummy.ResponseMinutes)
+        </th>
+    </tr>
+
+    @foreach (var item in Model.TicketDataList)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ticket)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResponseMinutes)
+            </td>
+        </tr>
+    }
+
+</table>
